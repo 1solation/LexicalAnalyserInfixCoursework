@@ -14,3 +14,5 @@ NULL_TOKEN - represents and empty token (or an error)
 public enum TokenType {
     NUM, ID, OPERATOR, INT_KEYWORD, END_OF_FILE, SEMI_COLON, NULL_TOKEN 
 }
+
+xxx
