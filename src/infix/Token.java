@@ -24,4 +24,4 @@ public class Token {
             case END_OF_LINE: System.out.println("END_OF_LINE Token");
         }
     }
-}
+} 
