@@ -46,7 +46,21 @@ public class Lexer {
                 // s represents an int keyword
                 Token key = new Token(TokenType.KEYWORD);
                 return key;
+            } else {
+                // If s was not the keyword int, it must be an identifier (name of a variable)
+                IdentToken newIdentifier = new IdentToken(s);
+                return newIdentifier;
             }
+            switch(peek) {
+            case('$'): peek = ' '; return new Token(TokenType.END_OF_FILE); 
+            case(';'): peek = ' '; return new Token(TokenType.END_OF_LINE); 
+            
+            //operator type cases
+            case('+'): peek = ' '; return new OperatorToken(OperatorType.PLUS);
+            case('-'): peek = ' '; return new OperatorToken(OperatorType.MINUS);
+            case('*'): peek = ' '; return new OperatorToken(OperatorType.MULTIPLY);
+            case('%'): peek = ' '; return new OperatorToken(OperatorType.MODULUS);
+         
         }
         //If we have gotten to here, we have not matched any token so print an error message and return a NULL_TOKEN
         System.out.println("Syntax Error");
